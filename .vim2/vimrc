@@ -1,0 +1,127 @@
+"space to leader
+let mapleader = " " 
+
+"set line numbers
+set number 
+
+"hight light the syntax
+syntax on 
+
+"have relative number
+set relativenumber 
+
+"line under cursor
+set cursorline 
+
+"???
+set wrap 
+
+"???
+set showcmd 
+
+"???
+set wildmenu 
+
+"highlight search
+set hlsearch 
+
+"???
+set incsearch 
+
+"search don't care case
+set ignorecase 
+
+"search smart
+set smartcase 
+
+"dishighlight reopen the file
+exec "nohlsearch" 
+
+"search and move window to it.
+noremap n nzz 
+
+"opp
+noremap N Nzz 
+
+"dishl when press space and enter
+noremap <LEADER><CR> :nohlsearch<CR> 
+
+"quick start vimrc
+map <LEADER>rc :!vim /home/modongwang/.vim/vimrc<CR>
+
+"split screen settings
+map io :set splitright<CR> :vsplit<CR>
+map oi :set nosplitright<CR> :vsplit<CR>
+map op :set splitbelow<CR> :split<CR>
+map po :set nosplitbelow<CR> :split<CR>
+
+"move cursor to different split screen
+map <LEADER>j <C-w>j
+map <LEADER>k <C-w>k
+map <LEADER>l <C-w>l
+map <LEADER>h <C-w>h
+
+"adjust split screen size
+map <up> :res+5<CR>
+map <down> :res-5<CR>
+map <left> :vertical resize-5<CR>
+map <right> :vertical resize+5<CR>
+
+"open new tab, and swtich between tabs
+map \ :tabe<CR>
+map \- :-tabnext<CR>
+map \= :+tabnext<CR>
+
+
+"save file without exit 
+map s :source $MYVIMRC<CR>
+
+"vim-plug
+call plug#begin('~/.vim/plugged')
+
+"vim airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"vim - snazzy
+Plug 'connorholyday/vim-snazzy'
+
+
+
+
+
+call plug#end()
+"plug ends
+
+
+
+"vim-snazzy setup
+colorscheme snazzy
+let g:lightline = {
+\ 'colorscheme': 'snazzy',
+\ }
+let g:SnazzyTransparent = 1
+
+
+
+
+"airline theme
+let g:airline_theme='badwolf'
+" 打开空白符检测
+let g:airline#extensions#whitespace#enabled=1
+"安装字体后必须设置
+let g:airline_powerline_fonts = 1
+"开启tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+"设置下方箭头
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = ''
